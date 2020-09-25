@@ -10,6 +10,29 @@ public class AVLNode<Element> {
   public init(value: Element) {
     self.value = value
   }
+
+  public var height = 0
+
+  public var leftHeight: Int {
+    leftChild?.height ?? -1
+  }
+
+  public var rightHeight: Int {
+    rightChild?.height ?? -1
+  }
+
+  public var balanceFactor: Int {
+    leftHeight - rightHeight
+  }
+
+  private func leftRotate(_ node: AVLNode<Element>) -> AVLNode<Element> {
+    let pivot = node.rightChild!
+    node.rightChild = pivot.leftChild
+    pivot.leftChild = node
+    node.height = max(node.leftHeight, node.rightHeight) + 1
+    pivot.height = max(pivot.leftHeight, pivot.rightHeight) + 1
+    return pivot
+  }
 }
 
 extension AVLNode: CustomStringConvertible {
