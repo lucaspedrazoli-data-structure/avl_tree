@@ -31,7 +31,9 @@ extension AVLTree {
     } else {
       node.rightChild = insert(from: node.rightChild, value: value)
     }
-    return node.balanced()
+    let balancedNode = node.balanced()
+    balancedNode.height = max(balancedNode.leftHeight, balancedNode.rightHeight) + 1
+    return balancedNode
   }
 }
 
