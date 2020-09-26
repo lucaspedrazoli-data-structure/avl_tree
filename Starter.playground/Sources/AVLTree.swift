@@ -89,6 +89,8 @@ extension AVLTree {
     } else {
       node.rightChild = remove(node: node.rightChild, value: value)
     }
+    let balancedNode = node.balanced()
+    balancedNode.height = max(balancedNode.leftHeight, balancedNode.rightHeight) + 1
     return node
   }
 }
