@@ -59,24 +59,24 @@ public class AVLNode<Element> {
     return rightRotate(node)
   }
 
-  private func balanced(_ node: AVLNode<Element>) -> AVLNode<Element> {
-    switch node.balanceFactor {
+  public func balanced() -> AVLNode<Element> {
+    switch self.balanceFactor {
     case 2:
-      if let leftChild = node.leftChild,
+      if let leftChild = self.leftChild,
         leftChild.balanceFactor == -1 {
-        return leftRightRotate(node)
+        return leftRightRotate(self)
       } else {
-        return rightRotate(node)
+        return rightRotate(self)
       }
     case -2:
-      if let rightChild = node.rightChild,
+      if let rightChild = self.rightChild,
         rightChild.balanceFactor == 1 {
-        return rightLeftRotate(node)
+        return rightLeftRotate(self)
       } else {
-        return leftRotate(node)
+        return leftRotate(self)
       }
     default:
-      return node
+      return self
     }
   }
 }

@@ -31,7 +31,7 @@ extension AVLTree {
     } else {
       node.rightChild = insert(from: node.rightChild, value: value)
     }
-    return node
+    return node.balanced()
   }
 }
 
