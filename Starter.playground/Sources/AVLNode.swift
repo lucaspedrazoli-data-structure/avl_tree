@@ -51,6 +51,14 @@ public class AVLNode<Element> {
     return leftRotate(node)
   }
 
+  private func leftRightRotate(_ node: AVLNode<Element>) -> AVLNode<Element> {
+    guard let leftChild = node.leftChild else {
+      return node
+    }
+    node.leftChild = leftRotate(leftChild)
+    return rightRotate(node)
+  }
+
 
 }
 
