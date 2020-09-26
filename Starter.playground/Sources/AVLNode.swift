@@ -42,6 +42,16 @@ public class AVLNode<Element> {
     pivot.height = max(pivot.leftHeight, pivot.rightHeight) + 1
     return pivot
   }
+
+  private func rightLeftRotate(_ node: AVLNode<Element>) -> AVLNode<Element> {
+    guard let rightChild = node.rightChild else {
+      return node
+    }
+    node.rightChild = rightRotate(rightChild)
+    return leftRotate(node)
+  }
+
+
 }
 
 extension AVLNode: CustomStringConvertible {
