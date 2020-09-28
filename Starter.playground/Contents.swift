@@ -34,3 +34,11 @@ example(of: "calculate leaf nodes for perfect balance") {
   print("height: \(tree.root!.height)")
   print("leaf nodes: \(leafNodes(tree))")
 }
+
+example(of: "using TraversableBinaryNode protocol") {
+  var tree = AVLTree<Int>()
+  for i in 0..<15 {
+    tree.insert(i)
+  }
+  tree.root?.traverseInOrder { print($0) }
+}

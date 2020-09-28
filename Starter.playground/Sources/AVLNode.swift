@@ -1,7 +1,7 @@
 // Copyright (c) 2019 Razeware LLC
 // For full license & permission details, see LICENSE.markdown.
 
-public class AVLNode<Element> {
+public final class AVLNode<Element>: TraversableBinaryNode {
   
   public var value: Element
   public var leftChild: AVLNode?
