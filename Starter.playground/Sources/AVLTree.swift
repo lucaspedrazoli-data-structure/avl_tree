@@ -95,3 +95,13 @@ extension AVLTree {
     return balancedNode
   }
 }
+
+extension AVLTree {
+  func nodes(inTreeOfHeight height: Int) -> Int {
+    var totalHeight = 0
+    for currentHeight in 0...height {
+      totalHeight += Int(pow(2.0, Double(currentHeight)))
+    }
+    return totalHeight
+  }
+}
